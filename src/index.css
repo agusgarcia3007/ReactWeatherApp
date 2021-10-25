@@ -60,8 +60,9 @@ input[type=text]:not(.browser-default):focus:not([readonly]) + label {
   text-align: center;
   font-size: 1.4rem;
 }
+
 .temperature {
-  font-size: 4rem!important
+  font-size: 4rem!important;
 }
 .temperature span {
   font-size: 2rem!important;
@@ -89,4 +90,20 @@ span img{
   padding: 1rem!important;
   text-align: center!important;
   color: #FFF!important;
+}
+.weather{
+  display:flex;
+  flex-direction: column;
+}
+
+span img{
+  display: block;
+  margin:auto;
+  width:8rem;
+  padding: 0;
+  margin-bottom:0;
+}
+.card-panel .description{
+  font-size: 3rem;
+  text-transform:capitalize;
 }

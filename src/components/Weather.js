@@ -13,12 +13,13 @@ const Weather = ({result}) => {
     const icon =  `http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`
 
     return ( 
-        <div className="card-panel white col s12">
-            <div className="black-text">
+        <div className="card-panel col s12">
+            <div className="black-text weather">
                 <h2>{name} Forecast:</h2>
-                <p className='icon'>
-                    {weather[0].description} <span><img src={icon} alt='icon'/></span>
+                <p className='description'>
+                    {weather[0].description} 
                 </p>
+                    <span><img src={icon} alt='icon'/></span>
                 <p className="temperature">
                     {Math.round(main.temp - kelvin).toFixed(2)} <span> &#x2103; </span>
                 </p>
