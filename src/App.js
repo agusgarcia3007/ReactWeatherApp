@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Form from './components/Form';
 import Weather from './components/Weather';
+import Error from './components/Error';
 
 const App = () =>{
 
@@ -37,7 +38,20 @@ const App = () =>{
      
     }
     fetchApi();
+
+    //eslint-disable-next-line
   }, [fetching]);
+
+
+  let component;
+
+  if(error){
+    component= <Error message='No Results found'/>
+  }else{
+    component= <Weather 
+                  result={result}
+                />
+  }
 
   
 
@@ -58,9 +72,7 @@ const App = () =>{
               />
             </div>
             <div className="col m6 s12">
-              <Weather 
-                result={result}
-              />
+              {component}
             </div>
           </div>
         </div>

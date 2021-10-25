@@ -1,4 +1,6 @@
 import React, { useState }  from 'react';
+import PropTypes from 'prop-types';
+import Error from './Error';
 
 const Form = ({data, setData, setFetching}) => {
 
@@ -30,8 +32,8 @@ const Form = ({data, setData, setFetching}) => {
         <form
             onSubmit={handleSubmit}
         >
-
-          {error ? <p className='red darken-2 error'>All fields are required</p> : null}
+            {error ? <Error message='All fields are required'/> : null}
+          
             <div className="input-field col s12">
                 <input 
                     type="text" 
@@ -317,5 +319,11 @@ const Form = ({data, setData, setFetching}) => {
         </form>
      );
 }
- 
+
+Form.propTypes={
+    data:PropTypes.object.isRequired,
+    setData:PropTypes.func.isRequired,
+    setFetching:PropTypes.func.isRequired
+}
+
 export default Form;
