@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Form from './components/Form';
+import Weather from './components/Weather';
 
 const App = () =>{
 
   const [data, setData] = useState({
     city:'',
     country:'',
+    error:false
   });
   const [fetching, setFetching] = useState(false);
   const [result, setResult] = useState({});
 
   
-  const {city, country} = data;
+  const {city, country, error} = data;
 
   useEffect(() => {
     const fetchApi = async () => {
@@ -23,12 +25,21 @@ const App = () =>{
   
         const resp = await fetch(url);
         const result = await resp.json();
-        console.log(result);
+        setResult(result);
+        setFetching(false);
+
+        if(result.cod === '404'){
+          setData({error:true})
+        }else{
+          setData({error:false})
+        }
       }
      
     }
     fetchApi();
-  }, [fetching])
+  }, [fetching]);
+
+  
 
   return(
     <>
@@ -47,7 +58,9 @@ const App = () =>{
               />
             </div>
             <div className="col m6 s12">
-              2
+              <Weather 
+                result={result}
+              />
             </div>
           </div>
         </div>
