@@ -35,16 +35,6 @@ const Form = ({data, setData, setFetching}) => {
             {error ? <Error message='All fields are required'/> : null}
           
             <div className="input-field col s12">
-                <input 
-                    type="text" 
-                    name="city" 
-                    id='city'
-                    onChange={handleChange}
-                />
-                <label htmlFor='city'>City </label>
-            </div>
-
-            <div className="input-field col s12">
                 <select
                     name="country" 
                     id='country'
@@ -307,6 +297,17 @@ const Form = ({data, setData, setFetching}) => {
                 
                 <label htmlFor='country'>Country </label>
             </div>
+            
+            <div className="input-field col s12">
+                <input 
+                    type="text" 
+                    name="city" 
+                    id='city'
+                    onChange={handleChange}
+                />
+                <label htmlFor='city'>City </label>
+            </div>
+
 
             <div className="input-field col s12">
                 <input 
